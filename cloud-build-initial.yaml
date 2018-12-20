@@ -1,0 +1,7 @@
+#invoke with gcloud builds submit --config cloud-build-initial.yaml .
+#Creates the first container image with a blue web page - see setupInstructions.md
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-t', 'gcr.io/<YOUR_PROJECT_ID>/webserver:blue', './webserver' ]
+- name: 'gcr.io/cloud-builders/docker'
+  args: ["push", "gcr.io/<YOUR_PROJECT_ID>/webserver:blue"]

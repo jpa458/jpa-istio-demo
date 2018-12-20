@@ -1,0 +1,6 @@
+#invoke with gcloud builds submit --config cloud-build-canary.yaml .
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-t', 'gcr.io/<YOUR_PROJECT_ID>/webserver', './webserver' ]
+images:
+- 'gcr.io/<YOUR_PROJECT_ID>/webserver'

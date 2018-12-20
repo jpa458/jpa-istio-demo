@@ -1,0 +1,19 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: jpa-istio-demo-virtual-service
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - jpa-istio-demo-gateway
+  http:
+  - match:
+    - uri:
+        exact: /webserver
+    route:
+    - destination:
+        host: webserver
+        port:
+          number: 9080
+---
